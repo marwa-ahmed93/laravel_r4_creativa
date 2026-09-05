@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\ProvisionServer;
+use App\Http\Controllers\UserController;
+use App\Http\Middleware\CheckRole;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -30,3 +33,31 @@ return view('hello');
 // Route::post('/user' , function(Request $request){
 // dd($request);
 // });
+
+
+// Route::post('/server', ProvisionServer::class);
+
+// Route::middleware(CheckRole::class)->group(function(){
+// Route::controller(UserController::class)->group(function()  {
+
+// // Route::prefix('admin')->group(function(){
+
+// Route::get('/user', 'index')->name('user.index');
+
+// Route::get('/user/create', 'create')->name('user.create');
+// Route::post('/user/store', 'store')->name('user.store');
+// // });
+
+// });
+
+
+
+
+Route::controller(UserController::class)->group(function(){
+
+    Route::get('/user', 'index')->name('user.index');
+    Route::get('/user/create', 'create')->name('user.create');
+    Route::post('/user/store', 'store')->name('user.store');
+ 
+});
+
