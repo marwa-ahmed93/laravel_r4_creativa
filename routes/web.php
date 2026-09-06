@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\UserController;
 use App\Http\Middleware\CheckRole;
@@ -51,7 +53,7 @@ return view('hello');
 // });
 
 
-
+/***************************  User **************************************************** */
 
 Route::controller(UserController::class)->group(function(){
 
@@ -61,3 +63,27 @@ Route::controller(UserController::class)->group(function(){
  
 });
 
+
+
+
+/****************************  Driver ************************************************ */
+Route::controller(DriverController::class)->group(function(){
+   
+Route::get('/drivers', 'index')->name('drivers.index');
+
+Route::get('/drivers/create', 'create')->name('drivers.create');
+Route::post('/drivers/store', 'store')->name('drivers.store');
+
+Route::get('driver/show/{id}' , 'show')->name('driver.show');
+
+
+});
+
+
+
+
+/***************************** Car  ******************************************* */
+
+Route::get('/cars' , [CarController::class , 'index'])->name('car.index');
+Route::get('/car/create' , [CarController::class , 'create'])->name('car.create');
+Route::post('/car/store' , [CarController::class , 'store'])->name('car.store');

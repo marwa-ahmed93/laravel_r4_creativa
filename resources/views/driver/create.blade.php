@@ -1,12 +1,13 @@
+
+
 @extends('main')  
 
 @section('body')
 
+ <h2 class="text-center py-3"> Create Drivers  </h2>
 
-@include('layouts.errors')
-
-
-<form action="{{route('user.store')}}" method="post" class="w-75 m-auto my-4">  
+ @include('layouts.errors')
+<form action="{{route('drivers.store')}}" method="post" class="w-75 m-auto my-4">  
 @csrf
   <div class="mb-3">
     <label for="exampleInputPassword1" class="form-label">User Name</label>
@@ -27,7 +28,5 @@
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 
-
-
-
 @endsection
+
