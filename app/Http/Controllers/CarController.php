@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Storage;
 class CarController extends Controller
 {
 public function index(){
-    $cars = Car::all();
+    $cars = Car::withoutTrashed()->get();
     return view('car.index' ,['cars' => $cars]) ;
 }
 
@@ -39,5 +39,13 @@ $image = Storage::put('avatar' ,$validated['image']);
 
 
 }
+
+
+public function delete($id){
+    Car::find($id)->delete();
+        return redirect()->route('car.index');
+
+}
+
 
 }

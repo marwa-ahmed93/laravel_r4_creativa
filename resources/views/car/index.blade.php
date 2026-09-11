@@ -14,6 +14,10 @@
      <img class="w-100" src="{{asset('storage/'.$car->image)}}" alt="">
      <h2>Model: {{$car->model}}</h2>
      <h3>Price: {{$car->price}}</h3>
+     <div class="r"> 
+    <a class="btn btn-info px-3" href="">Show</a>    
+    <a class="btn btn-danger px-3"  href="{{route('car.delete',$car->id)}}">Delete</a>
+    </div>
     </div>
 </div>
 

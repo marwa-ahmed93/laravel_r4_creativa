@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\CarController;
+use App\Http\Controllers\DepartmantController;
 use App\Http\Controllers\DriverController;
 use App\Http\Controllers\ProvisionServer;
 use App\Http\Controllers\UserController;
@@ -60,7 +61,8 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/user', 'index')->name('user.index');
     Route::get('/user/create', 'create')->name('user.create');
     Route::post('/user/store', 'store')->name('user.store');
- 
+    Route::get('user/show/{id}','show')->name('user.show');
+
 });
 
 
@@ -87,3 +89,17 @@ Route::get('driver/show/{id}' , 'show')->name('driver.show');
 Route::get('/cars' , [CarController::class , 'index'])->name('car.index');
 Route::get('/car/create' , [CarController::class , 'create'])->name('car.create');
 Route::post('/car/store' , [CarController::class , 'store'])->name('car.store');
+Route::get('/car/delete/{id}' , [CarController::class , 'delete'])->name('car.delete');
+
+
+
+
+
+
+
+/***************************** Department  ******************************************* */
+
+Route::get('/depart' , [DepartmantController::class , 'index'])->name('depart.index');
+// Route::get('/car/create' , [CarController::class , 'create'])->name('car.create');
+// Route::post('/car/store' , [CarController::class , 'store'])->name('car.store');
+// Route::get('/car/delete/{id}' , [CarController::class , 'delete'])->name('car.delete');

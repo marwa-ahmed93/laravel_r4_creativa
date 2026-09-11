@@ -6,23 +6,22 @@
 
 <div class="container mt-5">
 
-<div class=" w-50 m-auto text-center my-3 p-2"> <a class="btn btn-primary w-100"  href="{{route('user.create')}}">Create</a></div>
+<div class=" w-50 m-auto text-center my-3 p-2"> <a class="btn btn-primary w-100"  href="{{route('user.index')}}">Back</a></div>
 
 
 
-    <div class="row " style="row-gap: 15px;">
-        @foreach($users as $user)
+    <div class="row  m-auto" style="row-gap: 15px;">
+    
         <div class="col-md-4">
             <div class="bg-info rounded text-center p-4">
                  <h3>User id:  {{$user->id}}</h3>
                  <h4>User Name:  {{$user->name}}</h4>
                  <span>User email:  {{$user->email}}</span>
-                  <div class=" mt-3">
-                    <a class="btn btn-warning" href="{{route('user.show',$user->id)}}">Show</a>
-                  </div>
+                 <span>User National_id:  {{$user->national_id->number_id}}</span>
+
             </div>
         </div>
-        @endforeach
+     
     </div>
 </div>
 

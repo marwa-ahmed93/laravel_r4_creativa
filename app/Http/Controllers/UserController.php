@@ -43,4 +43,16 @@ class UserController extends Controller
 
         return redirect()->route('user.index');
     }
+
+
+public function show($id){
+ 
+ $user =   User::find($id)->first();
+
+//  dd($user->national_id());
+return view('user.show',['user' => $user]);
+
+}
+
+
 }
